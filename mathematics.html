@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics Quiz</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="subjects.css">
+    <script src="script.js" defer></script>
+</head>
+<body class="mathematics-page">
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html">
+                <img src="Assets/QuizSky Logo Navbar.png" alt="QuizSky Logo">
+            </a>
+            <span> Difficulty: Easy </span>
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="guide.html">Guide</a></li>
+        </ul>
+    </nav>
+
+    <div class="container center-content">
+        <img src="Assets/QuizSky Logo Navbar.png" alt="QuizSky Logo" class="small-logo">
+
+    <div class="container">
+        <h2 id="welcome-message"></h2>
+        <h3>Mathematics Quiz</h3>
+        <form id="quiz-form">
+            <!-- Question 1 -->
+            <div class="question" id="q1">
+                <label style="font-size: 40px;">1. What is the value of π (pi) to two decimal places?</label><br><br>
+                <div class="choices">
+                    <button type="button" class="choice" data-answer="3.12">3.12</button>
+                    <button type="button" class="choice" data-answer="3.14">3.14</button>
+                </div>
+                <div class="choices">
+                    <button type="button" class="choice" data-answer="3.16">3.16</button>
+                    <button type="button" class="choice" data-answer="3.18">3.18</button>
+                </div>
+            </div>
+            <!-- Question 2 -->
+            <div class="question" id="q2">
+                <label style="font-size: 40px;">2. What is the square root of 144?</label><br><br>
+                <div class="choices">
+                    <button type="button" class="choice" data-answer="10">10</button>
+                    <button type="button" class="choice" data-answer="12">12</button>
+                </div>
+                <div class="choices">
+                    <button type="button" class="choice" data-answer="14">14</button>
+                    <button type="button" class="choice" data-answer="16">16</button>
+                </div>
+            </div>
+            <!-- Question 3 -->
+            <div class="question" id="q3">
+                <label style="font-size: 40px;">3. What is the formula for the area of a triangle?</label><br><br>
+                <div class="choices">
+                    <button type="button" class="choice" data-answer="1/2 base × height">1/2 base × height</button>
+                    <button type="button" class="choice" data-answer="base × height">base × height</button>
+                </div>
+                <div class="choices">
+                    <button type="button" class="choice" data-answer="1/2 base + height">1/2 base + height</button>
+                    <button type="button" class="choice" data-answer="base + height">base + height</button>
+                </div>
+            </div>
+            <!-- Question 4 -->
+            <div class="question" id="q4">
+                <label style="font-size: 40px;">4. Which mathematical symbol represents the factorial function?</label><br><br>
+                <div class="choices">
+                    <button type="button" class="choice" data-answer="%">%</button>
+                    <button type="button" class="choice" data-answer="!">!</button>
+                </div>
+                <div class="choices">
+                    <button type="button" class="choice" data-answer="&">&</button>
+                    <button type="button" class="choice" data-answer="#">#</button>
+                </div>
+            </div>
+            <!-- Question 5 -->
+            <div class="question" id="q5">
+                <label style="font-size: 40px;">5. Who formulated the famous theorem a² + b² = c² in a right triangle?</label><br><br>
+                <div class="choices">
+                    <button type="button" class="choice" data-answer="Archimedes">Archimedes</button>
+                    <button type="button" class="choice" data-answer="Euclid">Euclid</button>
+                </div>
+                <div class="choices">
+                    <button type="button" class="choice" data-answer="Pythagoras">Pythagoras</button>
+                    <button type="button" class="choice" data-answer="Aristotle">Aristotle</button>
+                </div>
+            </div>
+
+            <div class="buttons">
+                <button type="button" id="back-button" class="nav-button" disabled>Back</button>
+                <button type="button" id="next-button" class="nav-button">Next</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Music Control Icon (Speaker and Muted Speaker) -->
+    <div class="music-controls">
+        <img id="music-icon" src="Assets/speaker.png" alt="Music Icon" style="cursor: pointer;">
+    </div>
+    
+    <!-- Background Music Element -->
+    <audio id="background-music" src="Assets/Music/Bg Music.mp3" loop></audio>
+    <script src="background-audio.js" defer></script>
+
+    <script>
+        let currentQuestion = 0;
+        const questions = document.querySelectorAll('.question');
+        const nextButton = document.getElementById('next-button');
+        const backButton = document.getElementById('back-button');
+        let answers = [];
+
+        // Show the first question initially
+        showQuestion(currentQuestion);
+
+        // Handle button clicks for choices
+        document.querySelectorAll('.choice').forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove 'selected' class from all buttons in the current question
+                const currentQuestionDiv = button.closest('.question');
+                currentQuestionDiv.querySelectorAll('.choice').forEach(b => b.classList.remove('selected'));
+
+                // Add 'selected' class to the clicked button
+                button.classList.add('selected');
+            });
+        });
+
+        // Next button click handler
+        nextButton.addEventListener('click', () => {
+            const selectedButton = document.querySelectorAll('.question')[currentQuestion].querySelector('.selected');
+            if (selectedButton) {
+                answers[currentQuestion] = selectedButton.getAttribute('data-answer');
+                currentQuestion++;
+                if (currentQuestion >= questions.length) {
+                    // Redirect to results page after quiz completion
+                    window.location.href = 'results.html?score=' + calculateScore();
+                } else {
+                    showQuestion(currentQuestion);
+                }
+            } else {
+                alert('Please select an answer before moving to the next question.');
+            }
+        });
+
+        // Back button click handler
+        backButton.addEventListener('click', () => {
+            currentQuestion--;
+            showQuestion(currentQuestion);
+        });
+
+        // Show question based on the current index
+        function showQuestion(index) {
+            questions.forEach((question, i) => {
+                question.style.display = i === index ? 'block' : 'none';
+            });
+
+            // Update button states
+            backButton.disabled = currentQuestion === 0;
+        }
+
+        // Calculate score
+        function calculateScore() {
+            let score = 0;
+            // Correct answers array
+            const correctAnswers = [
+                '3.14', 
+                '12', 
+                '1/2 base × height', 
+                '!', 
+                'Pythagoras'
+            ];
+            for (let i = 0; i < answers.length; i++) {
+                if (answers[i] === correctAnswers[i]) {
+                    score++;
+                }
+            }
+            return `${score}/5`;
+        }
+    </script>
+</body>
+</html>
