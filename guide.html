@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Use QuizSky</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* General body styling */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Hagrid', Arial, sans-serif;
+            background-image: url('Assets/QuizSky Background Guide.gif');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #ffffff;
+            text-align: center; /* Center-aligns all content */
+        }
+
+        /* Overlay for better readability */
+        .overlay {
+            background: rgba(0, 0, 0, 0.6); /* Dark overlay */
+            padding: 50px;
+            border-radius: 10px;
+            margin: 50px auto;
+            max-width: 800px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #00bfff;
+        }
+
+        h2 {
+            font-size: 28px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            color: #87CEFA;
+        }
+
+        ol {
+            text-align: left;
+            display: inline-block;
+            margin: 20px auto;
+            font-size: 18px;
+            line-height: 1.8;
+            font-family: Arial, sans-serif;
+        }
+
+        ol li {
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        p {
+            font-size: 16px;
+            margin-top: 30px;
+            line-height: 1.6;
+        }
+
+        a {
+            color: #00bfff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html">
+                <img src="Assets/QuizSky Logo Navbar.png" alt="QuizSky Logo">
+            </a>
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="guide.html">Guide</a></li>
+        </ul>
+    </nav>
+    <!-- Content Wrapper -->
+    <div class="overlay">
+        <h1>How to Use QuizSky</h1>
+        <h2>Steps to Get Started:</h2>
+        <ol>
+            <li>Enter your name on the homepage and click <strong>Start Quiz</strong>.</li>
+            <li>Select a subject of your choice from the available options.</li>
+            <li>Answer the 5 multiple-choice questions in the quiz.</li>
+            <li>Submit your answers to see your score and improve your knowledge.</li>
+            <li>Choose whether to take a quiz again or go back to home.</li>
+        </ol>
+        <p>
+            Need help? Contact us at <a href="mailto:support@quizsky.com">support@quizsky.com</a>.
+        </p>
+    </div>
+
+    <!-- Music Control Icon (Speaker and Muted Speaker) -->
+    <div class="music-controls">
+        <img id="music-icon" src="Assets/speaker.png" alt="Music Icon" style="cursor: pointer;">
+    </div>
+    
+    <!-- Background Music Element -->
+    <audio id="background-music" src="Assets/Music/Bg Music.mp3" loop></audio>
+    <script src="background-audio.js" defer></script>
+
+    <footer>
+        <p>&copy; 2024 QuizSky. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
