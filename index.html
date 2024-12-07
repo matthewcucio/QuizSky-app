@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizSky</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body class="home-page">
+    <nav class="navbar">
+        <div class="logo">
+            <img src="Assets/QuizSky Logo Navbar.png" alt="QuizSky Logo">
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="guide.html">Guide</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container center-content">
+        <img src="Assets/QuizSky Logo White mode.svg" alt="QuizSky Logo" class="large-logo">
+        <h1 style="color:#12229d">Welcome to QuizSky!</h1>
+        <p style="color: white">Please enter your name to begin:</p>
+        <input type="text" id="username" placeholder="Enter your name" style="text-align: center;">
+        <button onclick="storeNameAndRedirect()">Start Quiz</button>
+    </div>
+
+    <!-- Music Control Icon (Speaker and Muted Speaker) -->
+    <div class="music-controls">
+        <img id="music-icon" src="Assets/speaker.png" alt="Music Icon" style="cursor: pointer;">
+    </div>
+    
+    <!-- Background Music Element -->
+    <audio id="background-music" src="Assets/Music/Bg Music.mp3" loop></audio>
+    <script src="background-audio.js" defer></script>
+
+    <footer>
+        <p>&copy; 2024 QuizSky. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
