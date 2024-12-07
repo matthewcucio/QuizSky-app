@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose a Subject</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body class="home-page">
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html">
+                <img src="Assets/QuizSky Logo Navbar.png" alt="QuizSky Logo">
+            </a>
+            <span> Choose Subject </span>
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="guide.html">Guide</a></li>
+        </ul>
+    </nav>
+
+    <div class="container center-content">
+        <img src="Assets/QuizSky Logo Navbar.png" alt="QuizSky Logo" class="small-logo">
+        <!-- Personalized Welcome Message -->
+        <h1 id="welcome-message">Welcome!</h1>
+
+        <!-- Instruction to Choose a Subject -->
+        <h2 style="color:white">Choose a Subject to Begin the Quiz:</h2>
+
+        <!-- Subject Buttons -->
+        <div class="subject-buttons">
+            <button onclick="redirectTo('englishgrammar.html')">English Grammar</button>
+            <button onclick="redirectTo('mathematics.html')">Mathematics</button>
+            <button onclick="redirectTo('phHistory.html')">PH History</button>
+            <button onclick="redirectTo('science.html')">Science</button>
+        </div>
+    </div>
+    
+    <!-- Music Control Icon (Speaker and Muted Speaker) -->
+    <div class="music-controls">
+        <img id="music-icon" src="Assets/speaker.png" alt="Music Icon" style="cursor: pointer;">
+    </div>
+    
+    <!-- Background Music Element -->
+    <audio id="background-music" src="Assets/Music/Bg Music.mp3" loop></audio>
+    <script src="background-audio.js" defer></script>
+
+    <footer>
+        <p>&copy; 2024 QuizSky. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
