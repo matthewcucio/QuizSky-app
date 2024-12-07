@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About QuizSky</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        
+        /* About QuizSky section styles */
+        .about-quizsky {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px;
+            background: linear-gradient(185deg, #005f99, #010c18); /* Gradient background */
+            color: white;
+            border-radius: 10px;
+        }
+
+        .about-quizsky .text {
+            max-width: 600px;
+        }
+
+        .about-quizsky h1 {
+            font-size: 36px;
+            font-weight: bold;
+            color: #00bfff;
+        }
+
+        .about-quizsky h2 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #00bfff;
+        }
+
+        .about-quizsky ul {
+            list-style-type: none;
+            margin-top: 0px;
+            padding: 0;
+        }
+
+        .about-quizsky ul li {
+            font-size: 16px;
+            margin: 5px 0;
+        }
+
+        .about-quizsky img {
+            width: 650px; /* logo size */
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Our Team section styles */
+        .team-section {
+            padding: 50px;
+            background-color: #f4f4f9;
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(185deg, #005f99, #010c18);
+            color: white;
+            border-radius: 10px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        .team-section h2 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #87CEFA;;
+        }
+
+        .team-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .team-member {
+            text-align: center;
+            max-width: 150px;
+        }
+
+        .team-member img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            box-shadow: 0 12px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .team-member h3 {
+            margin-top: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #00bfff;
+        }
+
+        .team-member p {
+            color: #ffffffd7;
+            font-size: 14px;
+        }
+
+        .team-member button {
+            background-color: #003366;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;   
+            text-transform: uppercase;
+        }
+
+        .team-member button:hover {
+            background-color: #00bfff;
+        }
+
+        /* Mission and Vision card container */
+        .mission-vision {
+            display: flex;
+            justify-content: space-between;
+            background: linear-gradient(185deg,  #005f99, #010c18);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+        }
+
+        .mission-vision .mission,
+        .mission-vision .vision {
+            width: 48%;
+        }
+
+        .mission-vision h3 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .mission-vision p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* Responsive design for smaller screens */
+        @media screen and (max-width: 768px) {
+            .about-quizsky {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .team-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .mission-vision {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .mission-vision .mission,
+            .mission-vision .vision {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html">
+                <img src="Assets/QuizSky Logo Navbar.png" alt="QuizSky Logo">
+            </a>
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="guide.html">Guide</a></li>
+        </ul>
+    </nav>
+
+    <!-- About QuizSky Section -->
+    <div class="about-quizsky">
+        <div class="text">
+            <h1>About QuizSky</h1>
+            <p>Welcome to QuizSky! This platform is designed to test and enhance your knowledge in four exciting subjects: English Grammar, Mathematics, Philippine History, and Science. Our mission is to provide an engaging learning experience for users of all ages.</p>
+
+            <h2><br>Why QuizSky?</h2>
+            <ul>
+                <li>Interactive quizzes to make learning fun.</li>
+                <li>Explore diverse topics in multiple subjects.</li>
+                <li>Track your progress and improve your skills.</li>
+            </ul>
+            <p style=" color: #00bfff;"><br><br>Start your learning journey today with QuizSky!</p>
+        </div>
+        <img src="Assets/QuizSky Logo White mode.svg" alt="QuizSky Logo">
+    </div>
+
+    <!-- Mission and Vision Card -->
+    <div class="mission-vision">
+        <div class="mission">
+            <h2 style="color: #00bfff">Mission</h2>
+            <p style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">To become the leading 3-1N group for delivering interactive and accessible learning experiences through engaging quizzes that help users improve their skills in a wide range of subjects. Our mission is to create a platform that not only showcases our web development skills but also fosters an enjoyable, effective learning environment. By leveraging our creativity and dedication, we aim to make knowledge accessible to people of all ages, providing them with an opportunity to enhance their learning journey. Through continuous improvement, we seek to make QuizSky a tool for personal growth, educational success, and lifelong learning.</p>
+        </div>
+        <div class="vision">
+            <h2 style="color: #00bfff">Vision</h2>
+            <p style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif">To establish ourselves as a trailblazing force in the educational technology field, providing a global platform that combines our technical expertise with a passion for making learning fun, engaging, and impactful. As the 3-1N group, we aim to build QuizSky into more than just a project—into a meaningful resource that empowers individuals worldwide to expand their knowledge in a fun and efficient way. We envision a future where QuizSky not only serves as a learning tool but as a symbol of our group’s creativity, collaboration, and dedication to bringing knowledge to life through technology.</p>
+        </div>
+    </div>
+
+    <!-- Our Team Section -->
+    <div class="team-section">
+        <h2>About the Team:<br></h2>
+        <h1 style="color: #00bfff">Group Five - Java Rice</h1>
+        <p>Meet the amazing team behind QuizSky.<br>We are a group of passionate developers dedicated to making learning fun!</p><br>
+
+        <div class="team-container">
+            <!-- Front End Team -->
+            <div class="team-member">
+                <img src="Assets/Team/Mondejar_Jeiren.jpg" alt="Jeiren Mondejar">
+                <h3>Mondejar, Jeiren</h3>
+                <p>Front End Developer</p>
+                <button onclick="window.open('https://www.facebook.com/jeeei8')">Visit Profile</button>
+            </div>
+
+            <div class="team-member">
+                <img src="Assets/Team/Fernandez_Cassidy.jpg" alt="Cassidy Fernandez">
+                <h3>Fernandez, Cassidy</h3>
+                <p>Front End Developer</p>
+                <button onclick="window.open('https://www.facebook.com/cassidy.fernandez.73')">Visit Profile</button>
+            </div>
+
+            <!-- Back End Team -->
+            <div class="team-member">
+                <img src="Assets/Team/Cucio_Matthew.png" alt="Matthew Cucio">
+                <h3>Cucio, Matthew</h3>
+                <p>Back End Developer & Project Lead</p>
+                <button onclick="window.open('https://www.facebook.com/matthew.cucio.5/')">Visit Profile</button>
+            </div>
+
+            <div class="team-member">
+                <img src="Assets/Team/Pastoral_Paula.jpg" alt="Paula Alyssa Pastoral">
+                <h3>Pastoral, Paula Alyssa</h3>
+                <p>Back End<br>Developer</p>
+                <button onclick="window.open('https://www.facebook.com/uhmm00')">Visit Profile</button>
+            </div>
+
+            <!-- Content & Documentation -->
+            <div class="team-member">
+                <img src="Assets/Team/Bautista_Eithan.jpg" alt="Eithan Josh Bautista">
+                <h3>Bautista, Eithan Josh</h3>
+                <p>Content & Documentation</p>
+                <button onclick="window.open('https://www.facebook.com/8an.jsh')">Visit Profile</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Music Control Icon (Speaker and Muted Speaker) -->
+    <div class="music-controls">
+        <img id="music-icon" src="Assets/speaker.png" alt="Music Icon" style="cursor: pointer;">
+    </div>
+    
+    <!-- Background Music Element -->
+    <audio id="background-music" src="Assets/Music/Bg Music.mp3" loop></audio>
+    <script src="background-audio.js" defer></script>
+    
+    <footer>
+        <p>&copy; 2024 QuizSky. All Rights Reserved.</p>
+    </footer>
+    
+</body>
+</html>
