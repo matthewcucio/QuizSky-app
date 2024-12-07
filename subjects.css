@@ -1,0 +1,208 @@
+/* Global styling */
+body {
+    font-family: 'Hagrid', Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+/* Common navbar styling */
+.navbar {
+    background-color:  rgba(0, 95, 153, 0.9);
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+}
+
+.navbar img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+}
+
+.navbar ul li {
+    margin-left: 20px;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+/* Subject-specific background and styles */
+body.science-page {
+    background-image: url('Assets/Background Images/Science\ Background.svg'); /* Science page background */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+}
+
+body.english-grammar-page{
+    background-image: url('Assets/Background Images/English\ Background.svg'); /* English page background */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+}
+
+body.mathematics-page{
+    background-image: url('Assets/Background Images/Mathematics\ Background.svg'); /* math page background */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+}
+
+body.ph-history-page{
+    background-image: url('Assets/Background Images/phhistorygif.gif'); /* History page background */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+}
+
+
+/* Question and button layout */
+.container {
+    text-align: center;
+    padding: 20px;
+}
+
+.question {
+    margin: 20px 0;
+}
+
+.question label {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.choices {
+    display: inline-block;
+    width: 45%;
+    margin: 5px;
+}
+
+/* Common styles for question labels */
+.question label {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+}
+
+/* Button Styling in Questions*/
+.choice {
+    background-color: #005f99;
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    margin: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    font-family: Arial, sans-serif; 
+}
+
+.choice:hover {
+    background-color: #12229d;
+}
+
+.choice.selected {
+    background-color: #12229d;
+}
+
+/* Center the navigation buttons */
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+
+/* Animation for score */
+#score {
+    font-family: Arial, sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    color: #4CAF50;
+    animation: scoreAnimation 2s ease-in-out;
+}
+
+@keyframes scoreAnimation {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Main result container */
+.result-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+}
+
+.content-container {
+    background-color: #ffffff; 
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    max-width: 600px;
+    width: 100%; 
+    text-align: center;
+}
+
+h2 {
+    font-size: 28px;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+
+/* Buttons styling in nav buttons below */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.nav-button {
+    background-color: #005f99;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    width: 150px;
+}
+
+.nav-button:hover {
+    background-color: #000108;
+}
+
+/* Disabled state */
+.nav-button:disabled {
+    background-color: #d3d3d3; 
+    cursor: not-allowed;         
+    color: #a0a0a0;              
+}
