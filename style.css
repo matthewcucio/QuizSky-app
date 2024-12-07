@@ -1,0 +1,227 @@
+body.home-page {
+    background-image: url('Assets/QuizSky\ Home\ Background.gif'); /* Home page background */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+}
+
+body.about-page {
+    background-image: url('Assets/QuizSky\ Home\ Background.gif'); /* about page background */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+}
+
+body.results-page {
+    background-image: url('Assets/QuizSky Home Background.gif'); /* results page */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+}
+
+body.guide-page {
+    background-image: url('Assets/QuizSky\ Background\ Guide.gif'); /* Same as home page */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+}
+
+
+.navbar {
+    background-color:  rgba(0, 95, 153, 0.9);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    align-items: center;
+}
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+}
+
+.navbar .logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar ul li {
+    margin-left: 20px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+.navbar ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Add spacing between input and button */
+.container input {
+    margin-bottom: 10px;
+    padding: 10px;      
+    width: 200px;        
+    height: 40px;       
+    font-size: 16px; 
+    border: 2px solid #003f66; 
+    border-radius: 5px;  
+    box-sizing: border-box; 
+}
+
+.container button {
+    padding: 10px 20px; 
+    font-size: 16px;    
+    background-color: #005a9e; 
+    color: white;       
+    border: 2px solid #003f66; 
+    border-radius: 5px; 
+    cursor: pointer;    
+    height: 50px;      
+    display: flex;     
+    justify-content: center;
+    align-items: center;   
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+
+button {
+    background-color: #005f99;
+    color: white;
+    border: 2px solid #003f66; /* border for better visibility shessh*/
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #003f66;
+    border: 2px solid #005f99;
+}
+
+/* Center content vertically and horizontally */
+.center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: calc(100vh - 70px); 
+}
+
+/* Large logo above the text */
+.large-logo {
+    width: 620px;
+    height: auto;
+    margin-bottom: 0px;
+}
+
+/* Small logo above the text */
+.small-logo {
+    width: 220px;
+    height: auto;
+    margin-bottom: 0px;
+}
+
+/* Subject buttons layout */
+.subject-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.subject-buttons button {
+    background-color: #005f99;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.subject-buttons button:hover {
+    background-color: #003f66;
+}
+
+/* Space below welcome message */
+#welcome-message {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #ffffff;
+}
+
+@font-face {
+    font-family: 'Hagrid';
+    src: url('Assets/Font/Hagrid-Regular-trial.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Apply the font to the entire body */
+body {
+    font-family: 'Hagrid', Arial, sans-serif;
+    color:black
+}
+
+h1, h2, h3 {
+    font-family: 'Hagrid', Arial, sans-serif;
+    letter-spacing: 1px;
+}
+
+button {
+    font-family: 'Hagrid', Arial, sans-serif;
+    text-transform: uppercase;
+    font-size: 18px;
+}
+
+.music-controls {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.music-controls img {
+    width: 50px;  
+    height: 50px;
+}
+
+footer {
+    background-color: #003366;  
+    color: white; 
+    text-align: center;  
+    padding: 20px 0; 
+    position: relative;  
+    bottom: 0;
+    width: 100%;  
+    font-size: 14px;  
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+footer p {
+    margin: 0px 0; 
+}
+
+footer a {
+    color: #00bfff;
+    text-decoration: none;
+}
+
+
+
