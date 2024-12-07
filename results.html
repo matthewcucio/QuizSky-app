@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Results</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="subjects.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body class="results-page">
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html">
+                <img src="Assets/QuizSky Logo Navbar.png" alt="QuizSky Logo">
+            </a>
+            <span> Score Results </span>
+        </div>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../guide.html">Guide</a></li>
+        </ul>
+    </nav>
+
+     <!-- Main container for the results -->
+     <div class="result-container">
+        <div class="content-container">
+            <h2>Quiz Results</h2>
+            <p id="score"></p>
+            <div class="buttons">
+                <a href="choose.html" class="nav-button">Take a Quiz Again</a>
+                <a href="index.html" class="nav-button">Back to Home</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Music Control Icon (Speaker and Muted Speaker) -->
+    <div class="music-controls">
+        <img id="music-icon" src="Assets/speaker.png" alt="Music Icon" style="cursor: pointer;">
+    </div>
+    
+    <!-- Background Music Element -->
+    <audio id="background-music" src="Assets/Music/Bg Music.mp3" loop></audio>
+    <script src="background-audio.js" defer></script>
+
+    <footer>
+        <p>&copy; 2024 QuizSky. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Get score from URL query parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const score = urlParams.get('score');
+        const totalScore = score.split('/')[0]; // Get user's score, e.g., 4 from 4/5
+
+        const scoreElement = document.getElementById('score');
+
+        // Function to animate the score with random numbers
+        function animateScore() {
+            let randomNum = 0;
+            const randomStart = Math.floor(Math.random() * 50); // Random number up to 50
+            const flashInterval = 100; // Interval to update score
+            const finalScore = `${totalScore}/5`;
+
+            // Function to display random numbers first
+            const interval = setInterval(() => {
+                randomNum = Math.floor(Math.random() * 50); // Random number each time
+                scoreElement.textContent = `Your score: ${randomNum}/5`;
+            }, flashInterval);
+
+            // After 2 seconds, stop the random number animation and show the final score
+            setTimeout(() => {
+                clearInterval(interval);
+                scoreElement.textContent = `Your score: ${randomStart}/5`; // Start from a random number
+                setTimeout(() => {
+                    // Flash the final score by quickly changing the text to the actual score
+                    scoreElement.textContent = `Your score: ${finalScore}`;
+                    scoreElement.style.fontWeight = 'bold'; // Make it bold for emphasis
+                    scoreElement.style.color = 'red'; // Color to make it stand out
+
+                    // Flash effect
+                    let flashCount = 0;
+                    const flashInterval = setInterval(() => {
+                        scoreElement.style.visibility = (flashCount % 2 === 0) ? 'hidden' : 'visible';
+                        flashCount++;
+                        if (flashCount >= 6) { // Stop flashing after 3 flashes (6 toggles)
+                            clearInterval(flashInterval);
+                            scoreElement.style.visibility = 'visible'; // Ensure final score is visible
+                            scoreElement.style.color = 'black'; // Reset color
+                        }
+                    }, 200); // Flash every 200ms
+                }, 500); // Delay before showing the final score
+            }, 2000); // Random numbers display for 2 seconds before final score
+        }
+
+        animateScore();
+    </script>
+</body>
+</html>
