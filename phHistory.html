@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Philippine History Quiz</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="subjects.css">
+    <script src="script.js" defer></script>
+</head>
+<body class="ph-history-page">
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html">
+                <img src="Assets/QuizSky Logo Navbar.png" alt="QuizSky Logo">
+            </a>
+            <span> Difficulty: Medium </span>
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="guide.html">Guide</a></li>
+        </ul>
+    </nav>
+
+    <div class="container center-content">
+        <img src="Assets/QuizSky Logo Navbar.png" alt="QuizSky Logo" class="small-logo">
+
+    <div class="container">
+        <h2 id="welcome-message"></h2>
+        <h3>Philippine History Quiz</h3>
+        <form id="quiz-form">
+            <!-- Question 1 -->
+            <div class="question" id="q1">
+                <label style="font-size: 40px;">1. Who is known as the "Father of the Philippine Revolution"?</label><br><br>
+                <div class="choices">
+                    <button type="button" class="choice" data-answer="Andres Bonifacio">Andres Bonifacio</button>
+                    <button type="button" class="choice" data-answer="Jose Rizal">Jose Rizal</button>
+                </div>
+                <div class="choices">
+                    <button type="button" class="choice" data-answer="Emilio Aguinaldo">Emilio Aguinaldo</button>
+                    <button type="button" class="choice" data-answer="Antonio Luna">Antonio Luna</button>
+                </div>
+            </div>
+            <!-- Question 2 -->
+            <div class="question" id="q2">
+                <label style="font-size: 40px;">2. When did the Philippines gain independence from Spain?</label><br><br>
+                <div class="choices">
+                    <button type="button" class="choice" data-answer="June 12, 1898">June 12, 1898</button>
+                    <button type="button" class="choice" data-answer="July 4, 1946">July 4, 1946</button>
+                </div>
+                <div class="choices">
+                    <button type="button" class="choice" data-answer="August 23, 1896">August 23, 1896</button>
+                    <button type="button" class="choice" data-answer="October 14, 1943">October 14, 1943</button>
+                </div>
+            </div>
+            <!-- Updated Question 3 -->
+            <div class="question" id="q3">
+                <label style="font-size: 40px;">3. What was the name of the secret society founded by Andres Bonifacio?</label><br><br>
+                <div class="choices">
+                    <button type="button" class="choice" data-answer="Katipunan">Katipunan</button>
+                    <button type="button" class="choice" data-answer="La Solidaridad">La Solidaridad</button>
+                </div>
+                <div class="choices">
+                    <button type="button" class="choice" data-answer="Liga Filipina">Liga Filipina</button>
+                    <button type="button" class="choice" data-answer="Propaganda Movement">Propaganda Movement</button>
+                </div>
+            </div>
+            <!-- Question 4 -->
+            <div class="question" id="q4">
+                <label style="font-size: 40px;">4. Who was the first president of the Philippines?</label><br><br>
+                <div class="choices">
+                    <button type="button" class="choice" data-answer="Emilio Aguinaldo">Emilio Aguinaldo</button>
+                    <button type="button" class="choice" data-answer="Manuel L. Quezon">Manuel L. Quezon</button>
+                </div>
+                <div class="choices">
+                    <button type="button" class="choice" data-answer="Jose P. Laurel">Jose P. Laurel</button>
+                    <button type="button" class="choice" data-answer="Sergio Osmeña">Sergio Osmeña</button>
+                </div>
+            </div>
+            <!-- Updated Question 5 -->
+            <div class="question" id="q5">
+                <label style="font-size: 40px;">5. What event is considered the bloodiest revolution in Philippine history?</label><br><br>
+                <div class="choices">
+                    <button type="button" class="choice" data-answer="Battle of Manila">Battle of Manila</button>
+                    <button type="button" class="choice" data-answer="Cry of Balintawak">Cry of Balintawak</button>
+                </div>
+                <div class="choices">
+                    <button type="button" class="choice" data-answer="Philippine-American War">Philippine-American War</button>
+                    <button type="button" class="choice" data-answer="Bataan Death March">Bataan Death March</button>
+                </div>
+            </div>
+
+            <div class="buttons">
+                <button type="button" id="back-button" class="nav-button" disabled>Back</button>
+                <button type="button" id="next-button" class="nav-button">Next</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Music Control Icon (Speaker and Muted Speaker) -->
+    <div class="music-controls">
+        <img id="music-icon" src="Assets/speaker.png" alt="Music Icon" style="cursor: pointer;">
+    </div>
+    
+    <!-- Background Music Element -->
+    <audio id="background-music" src="Assets/Music/Bg Music.mp3" loop></audio>
+    <script src="background-audio.js" defer></script>
+
+    <script>
+        let currentQuestion = 0;
+        const questions = document.querySelectorAll('.question');
+        const nextButton = document.getElementById('next-button');
+        const backButton = document.getElementById('back-button');
+        let answers = [];
+
+        // Show the first question initially
+        showQuestion(currentQuestion);
+
+        // Handle button clicks for choices
+        document.querySelectorAll('.choice').forEach(button => {
+            button.addEventListener('click', () => {
+                const currentQuestionDiv = button.closest('.question');
+                currentQuestionDiv.querySelectorAll('.choice').forEach(b => b.classList.remove('selected'));
+                button.classList.add('selected');
+            });
+        });
+
+        // Next button click handler
+        nextButton.addEventListener('click', () => {
+            const selectedButton = document.querySelectorAll('.question')[currentQuestion].querySelector('.selected');
+            if (selectedButton) {
+                answers[currentQuestion] = selectedButton.getAttribute('data-answer');
+                currentQuestion++;
+                if (currentQuestion >= questions.length) {
+                    window.location.href = 'results.html?score=' + calculateScore();
+                } else {
+                    showQuestion(currentQuestion);
+                }
+            } else {
+                alert('Please select an answer before moving to the next question.');
+            }
+        });
+
+        // Back button click handler
+        backButton.addEventListener('click', () => {
+            currentQuestion--;
+            showQuestion(currentQuestion);
+        });
+
+        // Show question based on the current index
+        function showQuestion(index) {
+            questions.forEach((question, i) => {
+                question.style.display = i === index ? 'block' : 'none';
+            });
+            backButton.disabled = currentQuestion === 0;
+        }
+
+        // Calculate score
+        function calculateScore() {
+            let score = 0;
+            const correctAnswers = [
+                'Andres Bonifacio',
+                'June 12, 1898',
+                'Katipunan',
+                'Emilio Aguinaldo',
+                'Philippine-American War'
+            ];
+            for (let i = 0; i < answers.length; i++) {
+                if (answers[i] === correctAnswers[i]) {
+                    score++;
+                }
+            }
+            return `${score}/5`;
+        }
+    </script>
+</body>
+</html>
